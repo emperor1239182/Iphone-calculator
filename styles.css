@@ -29,6 +29,10 @@
       margin:auto;
       display: block;
   }
+  #result:focus {
+    outline: none; 
+    border: none;  
+}
   .text{
     width: 80px;
     height: 76px;
