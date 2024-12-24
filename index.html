@@ -13,9 +13,10 @@
 	<section class="content">
 	<div class="container">
 	<input readonly id="result" placeholder="0"/> </br></br>
+	<div id="conversion" style="color:blue"></div>
     <div class="grid">
 	<button class="text operator" onclick="clearResult()">Ac</button>
-	<button class="text operator" onclick="show('+')">+/-</button>
+	<button class="text operator unique" onclick="change()">+/-</button>
 	<button class="text operator" onclick="show('%')">%</button>
 	<button class="text orange" onclick="show('/')">÷</button>
 	<button class="text" onclick="show(7)">7</button>
@@ -33,6 +34,14 @@
 	<button class="null" onclick="show(0)">0</button>
 	<button class="text" onclick="show('.')">.</button>
 	<button class="text orange" onclick="calc()">=</button>
+	<button class="text orange" onclick="cancel()">X</button>
+	<button id="convert">Convert</button>
+	<select id="metrics" name="metrics">
+		<option value="celcius" id="celcius">To celcius</option>
+		<option value="kelvin" id="kelvin">To kelvin</option>
+		<option value="none" onclick="clear()">None</option>
+		</select>
+	</select>
     </div>
 	</div>
 	</section>
