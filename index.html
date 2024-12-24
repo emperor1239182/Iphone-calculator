@@ -13,7 +13,6 @@
 	<section class="content">
 	<div class="container">
 	<input readonly id="result" placeholder="0"/> </br></br>
-	<div id="conversion" style="color:blue"></div>
     <div class="grid">
 	<button class="text operator" onclick="clearResult()">Ac</button>
 	<button class="text operator unique" onclick="change()">+/-</button>
@@ -34,18 +33,27 @@
 	<button class="null" onclick="show(0)">0</button>
 	<button class="text" onclick="show('.')">.</button>
 	<button class="text orange" onclick="calc()">=</button>
-	<button class="text orange" onclick="cancel()">X</button>
-	<button id="convert">Convert</button>
-	<select id="metrics" name="metrics">
-		<option value="celcius" id="celcius">To celcius</option>
-		<option value="kelvin" id="kelvin">To kelvin</option>
-		<option value="none" onclick="clear()">None</option>
+	<button class="text orange" onclick="cancel()" style="font-size: small;">cancel</button>
+	<select id="metrics" name="metrics" class="text orange" style="font-size: small;" onchange="display()">
+		<option value="convert" id="menu" class="option">Convert:</option>
+		<option value="temperature" id="temperature" class="option">Temperature</option>
+		<option value="length" id="length" class="option">Length</option>
+		<option value="distance" id="distance" class="option">Distance</option>
 		</select>
-	</select>
     </div>
 	</div>
 	</section>
 	 </main>
+
+	 <section id="convertMetrics">
+		<div id="metricsContainer">
+			<h2 id="details" style="color:white"></h2>
+			<input type="number" id="input"/> <button id="convert">Convert</button>
+			<button class="switch">Switch</button>
+			<div id="output"></div>
+		</div>
+</section>
+
   <script src="script.js"></script>
 
 </body>

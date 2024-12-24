@@ -24,41 +24,21 @@ function change(){
 	}
 }
 
-function toKelvin(){
-	let result = document.getElementById("result").value;
-    let output = parseFloat(result)+ 273.15;
-    return "temp" + " " + "is" + ":" + output + "K";
-    }
-
-    function toCelcius(){
-		let result = document.getElementById("result").value;
-    let output = parseFloat(result) - 273.15;
-    return "temp" + " " + "is" + ":" + output + "C";
-    }
-
-	let convert = document.getElementById("conversion");
-	let metric = document.getElementById("metrics");
-	let execute = document.getElementById("convert");
-	let answer;
-	
-			execute.addEventListener("click", ()=>{
-				if(metric.value === "celcius"){
-					convert.innerHTML = "";
-				answer = toCelcius();
-				} else if(metric.value === "kelvin"){
-					convert.innerHTML = "";
-					answer = toKelvin();
-				}
-				 else{
-					answer = "enter a unit";
-				}
-				convert.innerHTML = answer;
-			}
-		);
-	function clear(){
-		if(metric.value === "none"){
-			convert.innerHTML = "";
-		}
-		
+function display(){
+	let met = document.getElementById("convertMetrics");
+	let units = document.getElementById("metrics");
+	let details = document.getElementById("details");
+	if(units.value === "temperature" || units.value === "length" || units.value === "distance"){
+	met.style.display = "block";
+	details.innerHTML = "Convert" + " " + units.value
 	}
+	else{
+		met.style.display = "none"
+	}
+}
+
+let input = document.getElementById("input").value;
+let output = document.getElementById("output");
+function temperature(){
 	
+}
