@@ -12,7 +12,22 @@
   	<main>
 	<section class="content">
 	<div class="container">
+
+		<section id="convertMetrics">
+			<div id="metricsContainer">
+				<h2 id="details" style="color:rgb(12, 9, 9)"></h2>
+				<input type="number" id="input"/>
+				 <button id="convert">Convert</button>
+				<select id="switch" name="switch">Switch Units
+					<option value="kelvin" id="toKelvin">To kelvin</option>
+					<option value="celcius" id="toCelcius">To Celcius</option>
+				</select>
+				<div id="output" style="color: rgb(22, 20, 20);"></div>
+			</div>
+	</section>
+	
 	<input readonly id="result" placeholder="0"/> </br></br>
+
     <div class="grid">
 	<button class="text operator" onclick="clearResult()">Ac</button>
 	<button class="text operator unique" onclick="change()">+/-</button>
@@ -45,14 +60,7 @@
 	</section>
 	 </main>
 
-	 <section id="convertMetrics">
-		<div id="metricsContainer">
-			<h2 id="details" style="color:white"></h2>
-			<input type="number" id="input"/> <button id="convert">Convert</button>
-			<button class="switch">Switch</button>
-			<div id="output"></div>
-		</div>
-</section>
+	 
 
   <script src="script.js"></script>
 

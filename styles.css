@@ -1,5 +1,6 @@
  body {
       background-color: black;
+      position: relative;
   }
   .grid{
     display: grid;
@@ -114,10 +115,18 @@
     
   }
   #convertMetrics{
-    border: 2px solid white;
+    border: 2px solid transparent;
+    border-radius: 5px;
     width: 320px;
     height: 300px;
     display: none;
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    right: 50%;
+    z-index: 20;
+    background-color: aqua;
   }
 
   #metricsContainer{
@@ -127,9 +136,14 @@
     align-items: center;
     gap: 20px;
   }
-  .switch, #convert{
+  #switch, #convert{
     font-size: small;
     width: 100px;
+  }
+  #convert{
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: rgb(52, 162, 56);
   }
   #input{
     width: 200px;
