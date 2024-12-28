@@ -148,3 +148,7 @@
   #input{
     width: 200px;
   }
+  #close{
+    position: relative;
+    left: 120px;
+  }

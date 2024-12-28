@@ -38,11 +38,17 @@ function display(){
 	if(units.value === "temperature" || units.value === "weight" || units.value === "distance"){
 	met.style.display = "block";
 	details.innerHTML = "Convert" + " " + units.value;
-	} 
-	else{
-		met.style.display = "none"
+	} else{
+		
+			met.style.display = "none";
+		
 	}
+	
 }
+let close = document.getElementById("close");
+close.addEventListener("click", ()=>{
+	met.style.display = "none";
+})
 
 
 //temperature conversion
