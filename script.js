@@ -4,9 +4,8 @@ let met = document.getElementById("convertMetrics");
 let units = document.getElementById("metrics");
 let details = document.getElementById("details");
 let convert = document.getElementById("convert");
-
-let switchElement = document.getElementById("switch").value
-		let output = document.getElementById("output");
+let switchElement = document.getElementById("switch")
+let output = document.getElementById("output");
 		
 
 function show(number){
@@ -35,13 +34,35 @@ function change(){
 
 //conversions display
 function display(){
+	switchElement.innerHTML = ""; // Clear current options
 	if(units.value === "temperature" || units.value === "weight" || units.value === "distance"){
+		let input = document.getElementById("input");
+		input.value = "";
+		output.innerHTML = "";
 	met.style.display = "block";
-	details.innerHTML = "Convert" + " " + units.value;
+	details.innerHTML = "Convert " + units.value;
+
+
+	if(units.value === "temperature"){
+		switchElement.innerHTML = `
+                <option value="kelvin">To Kelvin</option>
+                <option value="celcius">To Celcius</option>
+				`;
+	}
+	if(units.value === "weight"){
+		switchElement.innerHTML = `
+                <option value="toKg">To Kilogram</option>
+                <option value="toGram">To Gram</option>
+				`;
+	}
+	if(units.value === "distance"){
+		switchElement.innerHTML = `
+                <option value="toKm">To Kilometer</option>
+                <option value="tometer">To Meter</option>
+				`;
+	}
 	} else{
-		
 			met.style.display = "none";
-		
 	}
 	
 }
@@ -68,6 +89,15 @@ close.addEventListener("click", ()=>{
 	function toGram(weight){
 		return weight * 1000;
 	}
+
+	//distance conversion
+	function toKm(km){
+		return km * 1000;
+	}
+
+	function toMeter(meter){
+		return meter / 1000;
+	}
 	
 	//trigger the conversion functions
 	convert.addEventListener("click", ()=>{
@@ -75,6 +105,8 @@ close.addEventListener("click", ()=>{
 			return showTemp();
 		} else if(units.value === "weight"){
 			return showWeigth();
+		} else if(units.value === "distance"){
+			return showDistance();
 		}	
 		})
 
@@ -114,14 +146,38 @@ close.addEventListener("click", ()=>{
 			let realValue = parseFloat(input);
 				let weight = realValue;
 	
-			if(switchElement === "kelvin"){
+			if(switchElement === "toKg"){
 				output.innerHTML = "";
 				let solution = toKg(weight);
 				output.innerHTML  = `Weight is ${solution} Kg`;
-			} else if(switchElement === "celcius"){
+			} else if(switchElement === "toGram"){
 				output.innerHTML = "";
 				let solution = toGram(weight);
 				output.innerHTML  = `Weight is ${solution} G`;
+			}
+			}
+
+			//show distance conversion
+			function showDistance(){
+			let switchElement = document.getElementById("switch").value;
+			let output = document.getElementById("output");
+			let input = document.getElementById("input").value;
+
+			if(input === ""){
+				return output.innerHTML = "Enter a valid input";
+			}
+	
+			let realValue = parseFloat(input);
+				let distance = realValue;
+	
+			if(switchElement === "toKm"){
+				output.innerHTML = "";
+				let solution = toKm(distance);
+				output.innerHTML  = `Distance is ${solution} Km`;
+			} else if(switchElement === "toMeter"){
+				output.innerHTML = "";
+				let solution = toMeter(distance);
+				output.innerHTML  = `Distance is ${solution} M`;
 			}
 			}
 
